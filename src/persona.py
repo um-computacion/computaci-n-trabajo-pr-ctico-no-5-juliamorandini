@@ -1,5 +1,7 @@
 class Persona:
     def __init__(self, nombre, apellido, dni):
+        if not dni.isdigit():
+            raise ValueError("DNI debe ser un numero, no puede tener letras")
         self.nombre = nombre
         self.apellido = apellido
         self.dni = dni
@@ -8,3 +10,7 @@ class Persona:
 
     def __repr__(self):
         return f"Persona: DNI: {self.dni} Nombre: {self.nombre} Apellido: {self.apellido} Ultima Idea: {self.ultima_idea}"
+    
+    def pensar(self, idea):
+        self.pensamientos += 1
+        self.ultima_idea = idea
